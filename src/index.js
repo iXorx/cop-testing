@@ -36,7 +36,7 @@ const Presentation = () => (
         </Heading>
       </FlexBox>
       <Heading margin="10px" fontSize="30px">
-        by Jordi Turull
+        {`by Marc Ferret & Jordi Turull`}
       </Heading>
     </Slide>
     {/* Agenda */}
@@ -45,15 +45,6 @@ const Presentation = () => (
       <UnorderedList>
         <ListItem>
           <CodeSpan>test..what?</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>Types of testing</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>BDD, TDD, unit?</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>Coverage</CodeSpan>
         </ListItem>
         <ListItem>
           <CodeSpan>React testing library</CodeSpan>
@@ -66,6 +57,44 @@ const Presentation = () => (
         </ListItem>
       </UnorderedList>
     </Slide>
+    {/* test..what? */}
+    <Slide>
+      <Heading>test..what?</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>What is a test</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Types of testing</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>BDD, TDD, unit?</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Coverage</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+    </Slide>
+    <Markdown containsSlides>
+      {`
+        > The Best Kind of Test Is a Failing Test
+
+        Notes: These are notes
+
+        \`\`\`jsx
+        const evenCooler = "is that you can do code in Markdown";
+        // You can even specify the syntax type!
+        \`\`\`
+
+        ### A slide can have multiple code blocks too.
+
+        \`\`\`c
+        char[] someString = "Popular languages like C too!";
+        \`\`\`
+
+        Notes: These are more notes
+      `}
+    </Markdown>
 
 {/* ----------------- INSPIRATION -------------------- */}
     <Slide>
