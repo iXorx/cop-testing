@@ -226,13 +226,11 @@ const Presentation = () => (
           language="cpp"
           autoFillHeight
       >
-        {`
-import React from 'react'
+{`import React from 'react'
 
 const Hello = ({ name }) => <div>{name}</div>
 
-export default Hello;
-        `}
+export default Hello;`}
       </CodePane>
       <br />
       <CodePane
@@ -240,8 +238,7 @@ export default Hello;
           language="cpp"
           autoFillHeight
       >
-        {`
-import { render } from 'react-testing-library'
+{`import { render } from 'react-testing-library'
 import Hello from './Hello'
 
 describe('Hello', () => {
@@ -249,14 +246,91 @@ describe('Hello', () => {
     const { getByText } = render(<Hello name="Pep" />);
     getByText('Pep');
   })
-})
-      `}
+})`}
       </CodePane>
       <Notes>
         Testing simple React component
 
         - render: Render into a container which is appended to document.body
         - getByText will search for all elements that have a text node with textContent matching the given TextMatch
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Practical examples</Heading>
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+{`const useHello = ({ name }) => {name};
+
+export default useHello;`}
+      </CodePane>
+      <br />
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+{`import { renderHook } from '@testing-library/react-hooks';
+const { result } = renderHook(() => useHello('Pep'));
+
+expect(result.current).toEqual({
+  name: 'Pep',
+});
+`}
+      </CodePane>
+      <Notes>
+        Testing a hook
+
+        - renderHook: Render hook and check what is the result
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Practical examples</Heading>
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {`https://www.polvara.me/posts/how-to-test-asynchronous-methods/`}
+      </CodePane>
+      <br />
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {``}
+      </CodePane>
+      <Notes>
+        Testing a aysnc method
+
+        - renderHook: Render hook and check what is the result
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Practical examples</Heading>
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {`https://es.reactjs.org/docs/testing-recipes.html#act`}
+      </CodePane>
+      <br />
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {``}
+      </CodePane>
+      <Notes>
+        Testing amb el metodo act
+
+        Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse “unidades” de interacción con la interfaz de usuario.
+        Para preparar la asertividad en un componente, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a act(). Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
       </Notes>
     </Slide>
     {/* Time to play */}
