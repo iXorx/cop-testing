@@ -32,7 +32,7 @@ const Presentation = () => (
     <Slide>
       <FlexBox height="100%">
         <Heading margin="0px" fontSize="100px">
-          it('should be about testing')
+          it('should be about testing', ...)
         </Heading>
       </FlexBox>
       <Heading margin="10px" fontSize="30px">
@@ -41,7 +41,7 @@ const Presentation = () => (
     </Slide>
     {/* Agenda */}
     <Slide>
-      <Heading>Agenda</Heading>
+      <Heading fontSize="50px">Agenda</Heading>
       <UnorderedList>
         <ListItem>
           <CodeSpan>test..what?</CodeSpan>
@@ -59,7 +59,7 @@ const Presentation = () => (
     </Slide>
     {/* test..what? */}
     <Slide>
-      <Heading>test..what?</Heading>
+      <Heading fontSize="50px">test..what?</Heading>
       <UnorderedList>
         <ListItem>
           <CodeSpan>What is a test</CodeSpan>
@@ -75,53 +75,176 @@ const Presentation = () => (
         </ListItem>
       </UnorderedList>
     </Slide>
-    <Markdown containsSlides>
-      {`
-        > The Best Kind of Test Is a Failing Test
-
-        Notes: These are notes
-
-        \`\`\`jsx
-        const evenCooler = "is that you can do code in Markdown";
-        // You can even specify the syntax type!
-        \`\`\`
-
-        ### A slide can have multiple code blocks too.
-
-        \`\`\`c
-        char[] someString = "Popular languages like C too!";
-        \`\`\`
-
-        Notes: These are more notes
-      `}
-    </Markdown>
-
-{/* ----------------- INSPIRATION -------------------- */}
     <Slide>
-      <FlexBox height="100%" flexDirection="column">
-        <Heading margin="0px" fontSize="150px">
-          ✨<i>Spectacle</i> ✨
-        </Heading>
-        <Heading margin="0px" fontSize="h2">
-          A ReactJS Presentation Library
-        </Heading>
-        <Heading margin="0px 32px" color="primary" fontSize="h3">
-          Where you can write your decks in JSX, Markdown, or MDX!
-        </Heading>
+      <FlexBox height="100%">
+        <Markdown containsSlides>
+          {`> The Best Kind of Test Is a Failing Test`}
+        </Markdown>
       </FlexBox>
+    </Slide>
+    {/* What is a test */}
+    <Slide>
+      <Heading fontSize="50px">What is a test</Heading>
+      <Text>
+        Software testing is a process, to <b>evaluate the functionality</b> of a software
+        application with an intent to find whether the developed software <b>met
+        the specified requirements</b> or not and to <b>identify the defects</b> to ensure
+        that the product is defect-free in order to produce the quality product.
+      </Text>
+      <Text style={{ textAlign: 'center' }}>
+        <Image src="https://media.giphy.com/media/MgBJ3UifivIY/giphy.gif" />
+      </Text>
       <Notes>
-        <p>
-          Notes are shown in presenter mode. Open up
-          localhost:3000/?presenterMode=true to see them.
-        </p>
+        evaluate the functionality
+        met the specified requirements
+        identify the defects
+        the product is defect-free
       </Notes>
     </Slide>
+    {/* Types of testing */}
+    <Slide>
+      <Heading fontSize="50px">Types of testing</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Manual vs Automatic</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Functional vs Non-functional</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Functional testing</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Unit</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Integration</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>System</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Regression</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+      <Notes>
+      • Tests Unitarios: Este tipo de pruebas comprueban elementos básicos de nuestro
+      software de forma aislada. Son los test más importantes a la hora de validar
+      las reglas de negocio que hemos desarrollado. Nos centraremos en este tipo de
+      pruebas a lo largo de la sección de testing.
+      • Tests de integración: Los test de integración son aquellos que prueban conjuntos de elementos básicos, normalmente suelen incluirse en este tipo de pruebas
+      algunos elementos de infraestructura, como base de datos o llamadas a APIs.
+      • Tests de sistema: Este tipo de test, también denominados end-to-end o de extremo a extremo, prueban múltiples elementos de nuestra arquitectura simulando
+      el comportamiento de un actor con nuestro software.
+      • Tests de regresión: Este tipo de pruebas se encargan de verificar la funcionalidad ya entregada, es decir, son pruebas que se usan para detectar que
+      en los cambios introducidos en el sistema no se genera un comportamiento
+      inesperado. En definitiva, cualquier tipo de test funcional de los que hemos visto
+      podría ser un test de regresión, siempre y cuando hayan pasado correctamente
+      en algún momento y, tras realizar algún cambio en el sistema, empiecen a fallar
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Non-Functional testing</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Load</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Velocity</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Usability</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Security</CodeSpan>
+        </ListItem>
+        <Notes>
+          Tests de carga: Son test mediante los que se observa el comportamiento de
+          una sistema software bajo diferentes números de peticiones durante un tiempo
+          determinado.
+          • Tests de velocidad: Comprueban si el sistema genera los resultados en un
+          tiempo aceptable.
+          • Tests de usabilidad: Son pruebas en las que se trata de evaluar la UX del
+          sistema.
+          • Tests de seguridad: Se trata de un conjunto de pruebas en las que se trata de
+          evaluar si el sistema desarrollado está expuesto a vulnerabilidades conocidas.
+        </Notes>
+      </UnorderedList>
+    </Slide>
+    {/* BDD, TDD, unit? */}
+    <Slide>
+      <Heading fontSize="50px">BDD, TDD, unit?</Heading>
+    </Slide>
+    {/* Coverage */}
+    <Slide>
+      <Heading fontSize="50px">Coverage</Heading>
+    </Slide>
+    {/* React testing library */}
+    <Slide>
+      <Heading fontSize="50px">React testing library</Heading>
+      <Text style={{ textAlign: 'center' }}>
+        <img width="128px" src="https://testing-library.com/img/octopus-128x128.png" />
+      </Text>
+      <Text><b>React Testing Library</b> is a library used to interact with your React components like a human being.</Text>
+      <Text>You'll see just rendered HTML from your React Components.</Text>
+      <Notes>
+        is used to interact ....
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">React testing library</Heading>
+      <Text style={{ textAlign: 'center' }}>
+        <img src="https://media.giphy.com/media/M11UVCRrc0LUk/giphy.gif" />
+      </Text>
+      <Notes>¿Como interacturaria una persona con la pantalla?</Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">React testing library</Heading>
+      <Markdown>
+      {`
+        ||No Match  |1 Match	|1+ Match	|Await?|
+        |---------|-----------|----------|----------|----------|
+        |getBy|	throw|	return|	throw|	No|
+        |findBy|	throw|	return|	throw|	Yes|
+        |queryBy|	null|	return|	throw|	No|
+        |getAllBy|	throw|	array|	array|	No|
+        |findAllBy|	throw|	array|	array|	Yes|
+        |queryAllBy|	[]|	array|	array|	No|
+      `}
+      </Markdown>
+    </Slide>
+    {/* Practical examples */}
+    <Slide>
+      <Heading fontSize="50px">Practical examples</Heading>
+    </Slide>
+    {/* Time to play */}
+    <Slide>
+      <Heading fontSize="50px">Time to play</Heading>
+    </Slide>
+    <Slide>
+      <FlexBox style={{'display': 'flex', 'flexDirection': 'column'}} height="100%">
+        <Markdown>
+          {`
+            > “Program testing can be used to show the presence of bugs,
+            but never to show their absence!”
+          `}
+        </Markdown>
+        <img src="https://images.gr-assets.com/authors/1479514907p4/1013817.jpg" />
+        <Text>Edsger W. Dijkstra</Text>
+      </FlexBox>
+    </Slide>
+
+
+
+{/* ----------------- INSPIRATION -------------------- */}
     <Slide
       backgroundColor="tertiary"
       backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/main/beau.jpg?raw=true)"
       backgroundOpacity={0.5}
     >
-      <Heading>Custom Backgrounds</Heading>
+      <Heading fontSize="50px">Custom Backgrounds</Heading>
       <UnorderedList>
         <ListItem>
           <CodeSpan>backgroundColor</CodeSpan>
@@ -144,7 +267,7 @@ const Presentation = () => (
       </UnorderedList>
     </Slide>
     <Slide transitionEffect="slide">
-      <Heading>Code Blocks</Heading>
+      <Heading fontSize="50px">Code Blocks</Heading>
       <Stepper
         defaultValue={[]}
         values={[
@@ -196,7 +319,7 @@ const Presentation = () => (
       </Text>
     </Slide>
     <Slide>
-      <Heading>Animated Elements</Heading>
+      <Heading fontSize="50px">Animated Elements</Heading>
       <OrderedList>
         <Appear elementNum={0}>
           <ListItem>Elements can animate in!</ListItem>
