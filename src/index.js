@@ -198,7 +198,7 @@ const Presentation = () => (
       <Text style={{ textAlign: 'center' }}>
         <img src="https://media.giphy.com/media/M11UVCRrc0LUk/giphy.gif" />
       </Text>
-      <Notes>¿Como interacturaria una persona con la pantalla?</Notes>
+      <Notes>¿Como interactuaria un humano con la pantalla?</Notes>
     </Slide>
     <Slide>
       <Heading fontSize="50px">React testing library</Heading>
@@ -214,10 +214,50 @@ const Presentation = () => (
         |queryAllBy|	[]|	array|	array|	No|
       `}
       </Markdown>
+      <Notes>
+        Podemos ver las distintas queries y lo que devuelven
+      </Notes>
     </Slide>
     {/* Practical examples */}
     <Slide>
       <Heading fontSize="50px">Practical examples</Heading>
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {`
+import React from 'react'
+
+const Hello = ({ name }) => <div>{name}</div>
+
+export default Hello;
+        `}
+      </CodePane>
+      <br />
+      <CodePane
+          fontSize={18}
+          language="cpp"
+          autoFillHeight
+      >
+        {`
+import { render } from 'react-testing-library'
+import Hello from './Hello'
+
+describe('Hello', () => {
+  it('should contains name', () => {
+    const { getByText } = render(<Hello name="Pep" />);
+    getByText('Pep');
+  })
+})
+      `}
+      </CodePane>
+      <Notes>
+        Testing simple React component
+
+        - render: Render into a container which is appended to document.body
+        - getByText will search for all elements that have a text node with textContent matching the given TextMatch
+      </Notes>
     </Slide>
     {/* Time to play */}
     <Slide>
