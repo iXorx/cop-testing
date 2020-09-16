@@ -1,7 +1,7 @@
 {
-  "name": "spectacle-presentation",
-  "version": "0.0.1",
-  "description": "Spectacle presentation",
+  "name": "it(should be about testing, ...)",
+  "version": "1.0.0",
+  "description": "it(should be about testing, ...)",
   "scripts": {
     "clean": "rimraf dist",
     "build": "webpack",
