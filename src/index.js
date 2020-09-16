@@ -228,7 +228,8 @@ const Presentation = () => (
         <Markdown>
           {`
             > “Program testing can be used to show the presence of bugs,
-            but never to show their absence!”
+            >
+            > but never to show their absence!”
           `}
         </Markdown>
         <img src="https://images.gr-assets.com/authors/1479514907p4/1013817.jpg" />
