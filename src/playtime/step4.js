@@ -3,16 +3,18 @@ import {
 } from 'spectacle';
 
 export const step4 = indentNormalizer(`
-// App.test.jsx
+// app.jsx
 import React from "react";
-import App from "./app";
-import { render } from "@testing-library/react";
+import PokemonListItem from "./pokemon-list-item";
 
-describe("Age of Empires app", () => {
-  it("has a list of civilizations including Mayans", () => {
-    const { getByText } = render(<App />);
-
-    expect(getByText(/Mayans\b/i)).toBeInTheDocument();
-  });
-});
+export default function App() {
+  return (
+    <section>
+      <PokemonListItem name="Bulbasaur" />
+      <PokemonListItem name="Ivysaur" />
+      <PokemonListItem name="Venusaur" />
+      <PokemonListItem name="Charmander" />
+    </section>
+  );
+}
 `);

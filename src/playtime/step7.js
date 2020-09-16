@@ -3,16 +3,16 @@ import {
 } from 'spectacle';
 
 export const step7 = indentNormalizer(`
-// App.test.jsx
-import React from "react";
-import App from "./app";
-import { render } from "@testing-library/react";
+// app.jsx
+import data from "./data.json";
 
-describe("Age of Empires app", () => {
-  it("has a list of civilizations including Mayans", () => {
-    const { getByText } = render(<App />);
-
-    expect(getByText(/Mayans\b/i)).toBeInTheDocument();
-  });
-});
+export default function App() {
+  return (
+    <section>
+      {data.results.map((item) => (
+        <PokemonListItem key={item.name} name={item.name} />
+      ))}
+    </section>
+  );
+}
 `);

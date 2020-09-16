@@ -3,16 +3,17 @@ import {
 } from 'spectacle';
 
 export const step5 = indentNormalizer(`
-// App.test.jsx
-import React from "react";
-import App from "./app";
-import { render } from "@testing-library/react";
-
-describe("Age of Empires app", () => {
-  it("has a list of civilizations including Mayans", () => {
-    const { getByText } = render(<App />);
-
-    expect(getByText(/Mayans\b/i)).toBeInTheDocument();
-  });
-});
+// data.json
+{
+  "count": 964,
+  "next": "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20",
+  "previous": null,
+  "results": [
+    {
+      "name": "bulbasaur",
+      "url": "https://pokeapi.co/api/v2/pokemon/1/"
+    }
+    // ...
+  ]
+}
 `);

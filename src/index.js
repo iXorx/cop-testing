@@ -413,10 +413,86 @@ expect(result.current).toEqual({
           language="javascript"
           autoFillHeight
       >
-        {``}
+        {steps.step2}
       </CodePane>
       <Notes>
         <p>Implementando el primer prototipo</p>
+        <p>Como ves, el código de mi componente no podría ser más sencillo. Casi me atrevería a decir que es un poco absurdo. Pero te permitirá comprobar varias cosas antes de avanzar más.</p>
+        <p>Déjame insistir: haz una pequeña pausa antes de avanzar más.</p>
+        <p>Ejecuta las pruebas y asegúrate de que pasan:</p>
+        <br />
+        <p>Dir abans de passar al següent slide: Piensa: ¿cómo podemos mejorar nuestra implementación en este punto? Lo primero que podríamos hacer es extraer cada elemento de la lista a un componente. Así podremos trabajar en darle un poco de estilo y evitar repetir código.</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step3}
+      </CodePane>
+      <Notes>
+        <p>Nos quedaría así</p>
+        <br />
+        <p>Dir abans de passar al següent slide: Nuestro app.jsx quedaría así:</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step4}
+      </CodePane>
+      <Notes>
+        <p>Como ves, el componente App sigue teniendo código repetido. Podemos mejorarlo extrayendo un listado de Pokémon e iterando los elementos para renderizarlos. Aprovecharemos para mirar la documentación de la API y modelar el contrato que vamos a utilizar.</p>
+        <p>Ahora queremos empezar a consumir una API, pero no nos lanzamos a hacer la implementación. No hemos llegado a este punto, aún seguimos en la fase de refactor, decidiendo la mejor jerarquía de componentes para nuestra aplicación</p>
+        <p>Vamos a empezar a crear un Mock del la respuesta de la API en un fichero JSON</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step5}
+      </CodePane>
+      <Notes>
+        <p>Antes de pasar a la siguiente slide: Ha llegado el momento de mejorar la implementación de nuestro test y comprobar que no solo Bulbasaur aparece en el listado, sino todos los elementos de la primera página de resultados. Podemos utilizar el archivo data.json para escribir una nueva especificación más completa que la anterior.</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step6}
+      </CodePane>
+      <Notes>
+        <p>Nuestro nuevo test fallará 🔴, ya que el componente App no está utilizando el JSON de datos para mostrar todos los elementos.</p>
+        <p>En app.jsx, importa el archivo y utiliza la propiedad results de la estructura de datos para pintar los elementos del listado. Como ves, es un array, así que podemos aplicar .map() directamente:</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step7}
+      </CodePane>
+      <Notes>
+        <p>Asegurémonos de que nuestro test sigue estando verde tras este cambio 🟢. Debería ser así, ya que el pequeño Bulbasaur sigue apareciendo en el listado.</p>
+        <p>Con esto ya nos hemos asegurado de que nuestra jerarquía de componentes visuales ya es capaz de renderizar todos los elementos de un listado. Ahora solo tenemos que proporcionarlos. Es el momento de consumir la API.</p>
       </Notes>
     </Slide>
     <Slide>
