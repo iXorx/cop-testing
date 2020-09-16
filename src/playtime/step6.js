@@ -3,11 +3,11 @@ import {
 } from 'spectacle';
 
 export const step6 = indentNormalizer(`
-it("has a list of Pokémons", () => {
+it("has a list of Civilazations", () => {
   const { getByText } = render(<App />);
 
-  for (let pokemon of data.results) {
-    expect(getByText(pokemon.name)).toBeInTheDocument();
+  for (let civilazation of data.civilizations) {
+    expect(getByText(civilazation.name)).toBeInTheDocument();
   }
 });
 `);

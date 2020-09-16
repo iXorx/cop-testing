@@ -3,17 +3,16 @@ import {
 } from 'spectacle';
 
 export const step4 = indentNormalizer(`
-// app.jsx
 import React from "react";
-import PokemonListItem from "./pokemon-list-item";
+
+const CivilazationListItem = ({ name }) => <article className="list-item">{name}</article>;
 
 export default function App() {
   return (
     <section>
-      <PokemonListItem name="Bulbasaur" />
-      <PokemonListItem name="Ivysaur" />
-      <PokemonListItem name="Venusaur" />
-      <PokemonListItem name="Charmander" />
+      <CivilazationListItem name="Aztecs"/>
+      <CivilazationListItem name="Mayans"/>
+      <CivilazationListItem name="Mongols"/>
     </section>
   );
 }

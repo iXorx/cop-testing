@@ -3,16 +3,18 @@ import {
 } from 'spectacle';
 
 export const step7 = indentNormalizer(`
-// app.jsx
+import React from 'react';
 import data from "./data.json";
+
+const CivilazationListItem = ({ name }) => <article className="list-item">{name}</article>;
 
 export default function App() {
   return (
     <section>
-      {data.results.map((item) => (
-        <PokemonListItem key={item.name} name={item.name} />
-      ))}
-    </section>
+    {data.civilizations.map((item) => (
+      <CivilazationListItem key={item.name} name={item.name} />
+    ))}
+  </section>
   );
 }
 `);

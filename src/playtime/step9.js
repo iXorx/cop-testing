@@ -3,27 +3,31 @@ import {
 } from 'spectacle';
 
 export const step9 = indentNormalizer(`
-// /services/pokemons.js
-export async function getPokemons() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+import React from 'react';
+
+const getCivilazation = async () => {
+  const response = await fetch("https://age-of-empires-2-api.herokuapp.com/api/v1/civilizations");
   const { results } = await response.json();
   return results;
 }
 
-// app.jsx
-export default function App() {
-  const [pokemons, setPokemons] = React.useState([]);
+const CivilazationListItem = ({ name }) => <article className="list-item">{name}</article>;
+
+function App() {
+  const [civilazations, setCivilazations] = React.useState([]);
 
   React.useEffect(() => {
-    getPokemons().then(setPokemons);
+    getCivilazation().then(setCivilazations);
   }, []);
 
   return (
-    <section>
-      {pokemons.map((item) => (
-        <PokemonListItem key={item.name} name={item.name} />
-      ))}
-    </section>
+    <div className="App">
+      <section>
+        {civilazations.map((item) => (
+          <CivilazationListItem key={item.name} name={item.name} />
+        ))}
+      </section>
+    </div>
   );
 }
 `);

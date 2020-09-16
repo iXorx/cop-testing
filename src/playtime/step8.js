@@ -3,19 +3,23 @@ import {
 } from 'spectacle';
 
 export const step8 = indentNormalizer(`
-// spy
-const promise = Promise.resolve(PokemonData);
+import React from "react";
+import App from "./app";
+import { render, act } from "@testing-library/react";
+import { data } from './data.json'
+
+const promise = Promise.resolve(data);
 
 it("shows a list of Pokémons retrieved from an API", async () => {
-    const { getByText } = render(<App />);
+  const { getByText } = render(<App />);
 
-    await act(() => {
-      return promise;
-    });
-
-    // Comprobamos que la aplicación renderiza la colección de resultados proporcionada por el mock
-    for (let pokemon of data.results) {
-      expect(getByText(pokemon.name)).toBeInTheDocument();
-    }
+  await act(() => {
+    return promise;
   });
+
+  // Comprobamos que la aplicación renderiza la colección de resultados proporcionada por el mock
+  for (let civilazation of data.civilizations) {
+    expect(getByText(civilazation.name)).toBeInTheDocument();
+  }
+});
 `);

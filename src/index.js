@@ -19,6 +19,7 @@ import {
   Slide,
   Stepper,
   Text,
+  Link,
   UnorderedList,
   indentNormalizer
 } from 'spectacle';
@@ -73,7 +74,7 @@ const Presentation = () => (
           <CodeSpan>Test anatomy</CodeSpan>
         </ListItem>
         <ListItem>
-          <CodeSpan>BDD vs TDD</CodeSpan>
+          <CodeSpan>TDD vs BDD vs ATDD</CodeSpan>
         </ListItem>
         <ListItem>
           <CodeSpan>Coverage</CodeSpan>
@@ -85,6 +86,7 @@ const Presentation = () => (
         <Markdown containsSlides>
           {`> The Best Kind of Test Is a Failing Test`}
         </Markdown>
+        <Image src="https://media.giphy.com/media/EimNpKJpihLY4/giphy.gif" />
       </FlexBox>
     </Slide>
     {/* What is a test */}
@@ -97,7 +99,7 @@ const Presentation = () => (
         that the product is defect-free in order to produce the quality product.
       </Text>
       <Text style={{ textAlign: 'center' }}>
-        <Image src="https://media.giphy.com/media/MgBJ3UifivIY/giphy.gif" />
+        <Image width="320px" src="https://media.giphy.com/media/MgBJ3UifivIY/giphy.gif" />
       </Text>
       <Notes>
         <p>
@@ -322,7 +324,7 @@ It mainly focuses on satisfying the functional behavior of the system. This tech
     <Slide>
       <Heading fontSize="50px">Coverage</Heading>
       <Text>
-        Measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. <a href="https://en.wikipedia.org/wiki/Code_coverage" target='_blank'>Wikipedia</a>
+        Measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. <Link href="https://en.wikipedia.org/wiki/Code_coverage" target='_blank'>Wikipedia</Link>
       </Text>
       <UnorderedList>
         <ListItem>
@@ -410,7 +412,7 @@ describe('Hello', () => {
   it('should contains name', () => {
     const { getByText } = render(<Hello name="Pep" />);
     const value = getByText('Pep');
-    
+
     expect(value.innerHTML).toBe('Pep');
   });
 })`}
@@ -521,11 +523,11 @@ const promise = Promise.resolve({ name: 'Pep' });
 describe('Hello', () => {
   it('should contains name', async () => {
     const { getByText } = render(<Hello />);
-    
+
     await act(() => {
       return promise;
     });
-    
+
     const value = getByText('Pep');
     expect(value.innerHTML).toBe('Pep');
   });
@@ -578,7 +580,7 @@ describe('Hello', () => {
     <Slide>
       <Heading fontSize="50px">Time to play</Heading>
       <Text style={{ textAlign: 'center' }}>
-        <Image src="https://media.giphy.com/media/L3txcnbi3ODhV8XbcC/giphy.gif" />
+        <Image width="70%" src="https://media.giphy.com/media/MdAIFbJb9aX9EocMcq/giphy.gif" />
       </Text>
       <Notes>
         <p><b>Antes de la siguiente slide:</b> Vamos a definir un test, buscaremos la civilización Maya</p>
@@ -593,8 +595,8 @@ describe('Hello', () => {
       >
         {steps.step1}
       </CodePane>
-      <Text>
-        Error: Unable to find an element with the text: /Mayans\b/i. This could be
+      <Text fontFamily="monospace" color="red" fontSize="28px" fontStyle="italic">
+        | Error: Unable to find an element with the text: /Mayans\b/i. This could be
         because the text is broken up by multiple elements. In this case, you can provide
          a function for your text matcher to make your matcher more flexible.
       </Text>
@@ -611,6 +613,9 @@ describe('Hello', () => {
       >
         {steps.step2}
       </CodePane>
+      <FlexBox>
+        <Image width="400px" src="https://media.giphy.com/media/fWq0ZPMhtbmHtM031C/giphy.gif" />
+      </FlexBox>
       <Notes>
         <p>Como ves, el código de mi componente no podría ser más sencillo. Casi me atrevería a decir que es un poco absurdo. Pero te permitirá comprobar varias cosas antes de avanzar más.</p>
         <p>Déjame insistir: haz una pequeña pausa antes de avanzar más.</p>
@@ -628,6 +633,9 @@ describe('Hello', () => {
       >
         {steps.step3}
       </CodePane>
+      <FlexBox>
+        <Image width="600px" src="https://media.giphy.com/media/efxQ1LbmDdhdQxo8z2/giphy.gif" />
+      </FlexBox>
       <Notes>
         <p>Nos quedaría así</p>
         <br />
@@ -643,6 +651,9 @@ describe('Hello', () => {
       >
         {steps.step4}
       </CodePane>
+      <FlexBox>
+        <Image width="400px" src="https://media.giphy.com/media/r9FPrz4UfiqUE/giphy.gif" />
+      </FlexBox>
       <Notes>
         <p>Como ves, el componente App sigue teniendo código repetido. Podemos mejorarlo extrayendo un listado de Pokémon e iterando los elementos para renderizarlos. Aprovecharemos para mirar la documentación de la API y modelar el contrato que vamos a utilizar.</p>
         <p>Ahora queremos empezar a consumir una API, pero no nos lanzamos a hacer la implementación. No hemos llegado a este punto, aún seguimos en la fase de refactor, decidiendo la mejor jerarquía de componentes para nuestra aplicación</p>
@@ -671,6 +682,13 @@ describe('Hello', () => {
       >
         {steps.step6}
       </CodePane>
+      <Text fontFamily="monospace" color="red" fontSize="28px" fontStyle="italic">
+      | Error: Unable to find an element with the text: Britons. This could be because the text is broken up by multiple elements.
+       In this case, you can provide a function for your text matcher to make your matcher more flexible.
+      </Text>
+      <FlexBox>
+        <Image width="200px" src="https://media.giphy.com/media/dUBQvWHBY94CmyN2TB/giphy.gif" />
+      </FlexBox>
       <Notes>
         <p>Nuestro nuevo test fallará 🔴, ya que el componente App no está utilizando el JSON de datos para mostrar todos los elementos.</p>
         <p><b>Antes de la siguiente slide:</b> En app.jsx, importa el archivo y utiliza la propiedad results de la estructura de datos para pintar los elementos del listado. Como ves, es un array, así que podemos aplicar .map() directamente:</p>
@@ -685,6 +703,9 @@ describe('Hello', () => {
       >
         {steps.step7}
       </CodePane>
+      <FlexBox>
+        <Image width="400px" src="https://media.giphy.com/media/lr7X8irY0B0uluQZcc/giphy.gif" />
+      </FlexBox>
       <Notes>
         <p>Asegurémonos de que nuestro test sigue estando verde tras este cambio 🟢. Debería ser así, ya que el pequeño Bulbasaur sigue apareciendo en el listado.</p>
         <p>Con esto ya nos hemos asegurado de que nuestra jerarquía de componentes visuales ya es capaz de renderizar todos los elementos de un listado.</p>
@@ -700,6 +721,7 @@ describe('Hello', () => {
       >
         {steps.step8}
       </CodePane>
+      <Image width="20%" src="https://media.giphy.com/media/3oEjI5VtIhHvK37WYo/giphy.gif" />
       <Notes>
         <p><b>Antes de la siguiente slide:</b> Ahora ya solo nos queda hacer la petición y hacer que el test esté en verde</p>
       </Notes>
@@ -732,7 +754,7 @@ describe('Hello', () => {
     </Slide>
     <Slide>
       <FlexBox height="100%">
-        <Image src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif" />
+        <Image width="1130px" src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif" />
       </FlexBox>
     </Slide>
   </Deck>
