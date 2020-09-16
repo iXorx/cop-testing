@@ -392,7 +392,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Defining a test</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -410,7 +410,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -427,7 +427,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -442,7 +442,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -457,7 +457,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -470,7 +470,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -484,7 +484,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -499,7 +499,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
@@ -512,7 +512,7 @@ expect(result.current).toEqual({
       </Notes>
     </Slide>
     <Slide>
-      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <Heading fontSize="50px">Time to play</Heading>
       <CodePane
           fontSize={18}
           language="javascript"
