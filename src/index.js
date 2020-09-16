@@ -23,7 +23,7 @@ import {
   indentNormalizer
 } from 'spectacle';
 import { theme, template } from './config'
-import { cppCodeBlock } from './examples'
+import * as steps from './playtime';
 
 const Presentation = () => (
   <Deck theme={theme} template={template} transitionEffect="fade">
@@ -384,6 +384,40 @@ expect(result.current).toEqual({
     {/* Time to play */}
     <Slide>
       <Heading fontSize="50px">Time to play</Heading>
+      <Text style={{ textAlign: 'center' }}>
+        <Image src="https://media.giphy.com/media/L3txcnbi3ODhV8XbcC/giphy.gif" />
+      </Text>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Defining a test</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {steps.step1}
+      </CodePane>
+      <Text>
+        Error: Unable to find an element with the text: /Mayans\b/i. This could be
+        because the text is broken up by multiple elements. In this case, you can provide
+         a function for your text matcher to make your matcher more flexible.
+      </Text>
+      <Notes>
+        <p>Definimos un test, buscaremos la civilización Maya</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Time to play - Implementing the prototype</Heading>
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {``}
+      </CodePane>
+      <Notes>
+        <p>Implementando el primer prototipo</p>
+      </Notes>
     </Slide>
     <Slide>
       <FlexBox style={{'display': 'flex', 'flexDirection': 'column'}} height="100%">
