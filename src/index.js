@@ -213,9 +213,84 @@ responde el sistema, no en qué hace o debería hacer</b></p>
         </Notes>
       </UnorderedList>
     </Slide>
-    {/* BDD, TDD, unit? */}
     <Slide>
-      <Heading fontSize="50px">BDD, TDD, unit?</Heading>
+      <FlexBox flexDirection='column'>
+          <Text>Testing Pyramid</Text>
+          <Image src={'/src/img/piramide.PNG'} />
+      </FlexBox>
+    </Slide>
+    <Slide>
+      <FlexBox flexDirection='column'>
+        <Text>Ice cream antipattern</Text>
+        <Image src={'/src/img/helado.PNG'} />
+      </FlexBox>
+    </Slide>
+    {/* Test anatomy */}
+    <Slide>
+      <Heading fontSize="50px">Test anatomy</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Arrange</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Act</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Assert!</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+      <Text></Text>
+      <Notes>
+        <p>conocido como AAA</p>
+        <p>• Preparación (Arrange): en esta parte del test preparamos el contexto para
+poder realizar la prueba. Por ejemplo, si probamos un método de una clase,
+primero tendremos que instanciar dicha clase para probarlo. Además, una parte
+la preparación puede estar contenida en el método SetUp (Before en el caso de
+Jest), si es común a todos los test de la clase.</p>
+        <p>• Actuación (Act): ejecutamos la acción que queremos probar. Por ejemplo,
+invocar un método con unos parámetros.</p>
+        <p>• Aserción (Assert): verificamos si el resultado de la acción es el esperado. Por
+ejemplo, el resultado de la invocación del método anterior tiene que devolver
+un valor determinado.</p></Notes>
+    </Slide>
+    <Slide>
+    <CodePane
+        autoFillHeight
+        style={{ overflow: 'hidden' }}
+        fontSize={18}
+        language="javascript"
+        autoFillHeight
+      >
+{`
+test('return zero if receive one', () => {
+  //Arrange
+  const n = 1;
+
+  //Act
+  const result = fibonacci(n);
+
+  //Assert
+  expect(result).toBe(0);
+});
+`}
+      </CodePane>
+    </Slide>
+    {/* BDD vs TDD */}
+    <Slide>
+      <Heading fontSize="50px">BDD vs TDD</Heading>
+    </Slide>
+    {/* TDD cycle */}
+    <Slide>
+      <Heading fontSize="50px">TDD cycle</Heading>
+      <FlexBox>
+        <Image src='https://miro.medium.com/max/1590/1*vZil_bXiPA9VOx3hZCsg2Q.png' />
+      </FlexBox>
+      <Notes>
+        <h4>Red-Green-Refactor</h4>
+        <p>• No escribirás código de producción sin antes escribir un test que falle.</p>
+        <p>• No escribirás más de un test unitario suficiente para fallar (y no compilar es fallar).</p>
+        <p>• No escribirás más código del necesario para hacer pasar el test.</p>
+    </Notes>
     </Slide>
     {/* Coverage */}
     <Slide>
