@@ -700,7 +700,6 @@ describe('Hello', () => {
       >
         {steps.step8}
       </CodePane>
-      <Text>REVISAR MOCK!</Text>
       <Notes>
         <p><b>Antes de la siguiente slide:</b> Ahora ya solo nos queda hacer la petición y hacer que el test esté en verde</p>
       </Notes>
