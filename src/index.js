@@ -239,22 +239,7 @@ responde el sistema, no en qué hace o debería hacer</b></p>
           <CodeSpan>Assert!</CodeSpan>
         </ListItem>
       </UnorderedList>
-      <Text></Text>
-      <Notes>
-        <p>conocido como AAA</p>
-        <p>• Preparación (Arrange): en esta parte del test preparamos el contexto para
-poder realizar la prueba. Por ejemplo, si probamos un método de una clase,
-primero tendremos que instanciar dicha clase para probarlo. Además, una parte
-la preparación puede estar contenida en el método SetUp (Before en el caso de
-Jest), si es común a todos los test de la clase.</p>
-        <p>• Actuación (Act): ejecutamos la acción que queremos probar. Por ejemplo,
-invocar un método con unos parámetros.</p>
-        <p>• Aserción (Assert): verificamos si el resultado de la acción es el esperado. Por
-ejemplo, el resultado de la invocación del método anterior tiene que devolver
-un valor determinado.</p></Notes>
-    </Slide>
-    <Slide>
-    <CodePane
+      <CodePane
         autoFillHeight
         style={{ overflow: 'hidden' }}
         fontSize={18}
@@ -274,14 +259,24 @@ test('return zero if receive one', () => {
 });
 `}
       </CodePane>
+      <Notes>
+        <p>conocido como AAA</p>
+        <p>• Preparación (Arrange): en esta parte del test preparamos el contexto para
+poder realizar la prueba. Por ejemplo, si probamos un método de una clase,
+primero tendremos que instanciar dicha clase para probarlo. Además, una parte
+la preparación puede estar contenida en el método SetUp (Before en el caso de
+Jest), si es común a todos los test de la clase.</p>
+        <p>• Actuación (Act): ejecutamos la acción que queremos probar. Por ejemplo,
+invocar un método con unos parámetros.</p>
+        <p>• Aserción (Assert): verificamos si el resultado de la acción es el esperado. Por
+ejemplo, el resultado de la invocación del método anterior tiene que devolver
+un valor determinado.</p></Notes>
     </Slide>
     {/* BDD vs TDD */}
-    <Slide>
-      <Heading fontSize="50px">BDD vs TDD</Heading>
-    </Slide>
+
     {/* TDD cycle */}
     <Slide>
-      <Heading fontSize="50px">TDD cycle</Heading>
+      <Heading fontSize="50px">TDD</Heading>
       <FlexBox>
         <Image src='https://miro.medium.com/max/1590/1*vZil_bXiPA9VOx3hZCsg2Q.png' />
       </FlexBox>
@@ -292,9 +287,64 @@ test('return zero if receive one', () => {
         <p>• No escribirás más código del necesario para hacer pasar el test.</p>
     </Notes>
     </Slide>
+    <Slide>
+      <Heading fontSize="50px">TDD vs BDD vs ATDD</Heading>
+      <Markdown fontSize="10px">
+        {`
+        |Parameters | TDD | BDD | ATDD|
+        |--|--|--|--|
+        |Participants | Developer | Developers | Developers|
+        | | | Customer | Customers|
+        | | | QAs | QAs|
+        |Main Focus | Unit Tests | Understanding Requirements | Writing Acceptance Tests|
+        `}
+      </Markdown>
+      <Notes>
+      <p><b>Test-Driven Development (TDD)</b> TDD is a development technique that focuses more on the implementation of a feature</p>
+      <p><b>Business-Driven Development (BDD)</b> BDD is a development technique that focuses on the system’s behavior</p>
+      <p><b>Acceptance Test-Driven (ATDD)</b> ATDD is a technique similar to BDD focusing more on capturing the requirements</p>
+      <p></p>
+      <p>Business-Driven Development (BDD) is a testing approach derived
+      from the Test-Driven Development (TDD) methodology. In BDD, tests are mainly based on systems behavior.
+      This approach defines various ways to develop a feature based on its behavior.
+      In most cases, the Given-When-Then approach is used for writing test cases.</p>
+      <p><b>Given</b> the user has entered valid login credentials<br/>
+<b>When</b> a user clicks on the login button<br/>
+<b>Then</b> display the successful validation message</p>
+
+<p><b>Acceptance Test-Driven development?</b>
+In Acceptance Test-Driven Development (ATDD) technique, a single acceptance test is written from the user’s perspective.
+It mainly focuses on satisfying the functional behavior of the system. This technique attempts to answer the question – Is the code working as expected?</p>
+
+      </Notes>
+    </Slide>
     {/* Coverage */}
     <Slide>
       <Heading fontSize="50px">Coverage</Heading>
+      <Text>
+        Measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. <a href="https://en.wikipedia.org/wiki/Code_coverage" target='_blank'>Wikipedia</a>
+      </Text>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Function</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Statement </CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Branch</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Condition</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+<Notes>
+    <p>Function coverage – has each function (or subroutine) in the program been called?</p>
+    <p>Statement coverage – has each statement in the program been executed?</p>
+    <p>Edge coverage – has every edge in the Control flow graph been executed?</p>
+    <p>Branch coverage – has each branch (also called DD-path) of each control structure (such as in if and case statements) been executed? For example, given an if statement, have both the true and false branches been executed? This is a subset of edge coverage.</p>
+    <p>Condition coverage (or predicate coverage) – has each Boolean sub-expression evaluated both to true and false?</p>
+</Notes>
     </Slide>
     {/* React testing library */}
     <Slide>
@@ -455,6 +505,38 @@ expect(result.current).toEqual({
     {/* Tips */}
     <Slide>
       <Heading fontSize="50px">Tips</Heading>
+      <UnorderedList>
+        <ListItem>
+          <CodeSpan>Test should be independent</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>From general to specific</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>1 check = 1 test</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Remember to clean up</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Do not get obsessed with coverage</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Do not test trivial things</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>Set a timebox to do tests</CodeSpan>
+        </ListItem>
+      </UnorderedList>
+      <Notes>
+        <p>Cada run del test debe funcionar por si solo</p>
+        <p>Desgranar de general a especifico nos permite ver a que altura de fichero estamos y saber como de profundo es el error</p>
+        <p>Intentar evitar varias validaciones en el mismo test. Mejor tener 2 test con un check cada uno y una description</p>
+        <p>modificaciones de entorno, localStorage....usar afterAll o beforEach...</p>
+        <p>coverage es solo un numero, si el test cuesta mas de hacer que el beneficio que aporta, no pierdas el tiempo</p>
+        <p>mas mantenimento para cosas sin valor</p>
+        <p>si ves que un test cuesta mucho de desarrollar quiza estas complicando demasiado la logica</p>
+      </Notes>
     </Slide>
     {/* Time to play */}
     <Slide>
@@ -610,6 +692,11 @@ expect(result.current).toEqual({
         </Markdown>
         <img src="https://images.gr-assets.com/authors/1479514907p4/1013817.jpg" />
         <Text>Edsger W. Dijkstra</Text>
+      </FlexBox>
+    </Slide>
+    <Slide>
+      <FlexBox height="100%">
+        <Image src="https://media.giphy.com/media/KJ1f5iTl4Oo7u/giphy.gif" />
       </FlexBox>
     </Slide>
   </Deck>
