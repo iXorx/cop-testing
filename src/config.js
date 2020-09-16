@@ -34,18 +34,27 @@ export const theme = {
 
 // SPECTACLE_CLI_TEMPLATE_START
 export const template = () => (
-  <FlexBox
-    justifyContent="space-between"
-    position="absolute"
-    bottom={0}
-    width={1}
-  >
-    <Box padding="0 1em">
-      <FullScreen />
-    </Box>
-    <Box padding="1em">
-      <Progress />
-    </Box>
+  <FlexBox>
+    <FlexBox
+      justifyContent="space-between"
+      alignItems="center"
+      position="absolute"
+      top={0}
+      right={0}
+    >
+      <Box padding="0 1em">
+        <FullScreen />
+      </Box>
+    </FlexBox>
+    <FlexBox
+      justifyContent="center"
+      position="absolute"
+      bottom={0}
+    >
+      <Box padding="1em">
+        <Progress size={5} color="#414c79" />
+      </Box>
+    </FlexBox>
   </FlexBox>
 );
 // SPECTACLE_CLI_TEMPLATE_END
