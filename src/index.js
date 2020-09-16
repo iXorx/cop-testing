@@ -345,9 +345,7 @@ test('return zero if receive one', () => {
       >
 {`import React from 'react'
 
-const Hello = ({ name }) => <div>{name}</div>
-
-export default Hello;`}
+const Hello = ({ name }) => (name ? <div>{name}</div> : null);`}
       </CodePane>
       <br />
       <CodePane
@@ -361,17 +359,54 @@ import Hello from './Hello'
 describe('Hello', () => {
   it('should contains name', () => {
     const { getByText } = render(<Hello name="Pep" />);
-    getByText('Pep');
-
-    expect()
-  })
+    const value = getByText('Pep');
+    
+    expect(value.innerHTML).toBe('Pep');
+  });
 })`}
       </CodePane>
       <Notes>
         Testing simple React component
 
-        - render: Render into a container which is appended to document.body
-        - getByText will search for all elements that have a text node with textContent matching the given TextMatch
+        <p>- render: Render into a container which is appended to document.body</p>
+        <p>- getByText will search for all elements that have a text node with textContent matching the given TextMatch</p>
+      </Notes>
+    </Slide>
+    <Slide>
+      <Heading fontSize="50px">Practical examples</Heading>
+      <CodePane
+          autoFillHeight
+          style={{ overflow: 'hidden' }}
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {`import React from 'react';
+
+const Hello = ({ name }) => (name ? <div>{name}</div> : null)`}
+      </CodePane>
+      <br />
+      <CodePane
+          fontSize={18}
+          language="javascript"
+          autoFillHeight
+      >
+        {`import { render } from 'react-testing-library'
+import Hello from './Hello'
+
+describe('Hello', () => {
+  it('should contains name', () => {
+    const { container } = render(<Hello name=null />);
+
+    expect(container).toBeEmptyDOMElement();
+  });
+})`}
+      </CodePane>
+      <Notes>
+        Testing React component returns null
+
+        <p>- Returns null</p>
+        <p>- render: Render into a container which is appended to document.body</p>
       </Notes>
     </Slide>
     <Slide>
@@ -381,9 +416,9 @@ describe('Hello', () => {
           language="javascript"
           autoFillHeight
       >
-{`const useHello = ({ name }) => {name};
+{`import React from 'react';
 
-export default useHello;`}
+const useHello = ({ name }) => {name};`}
       </CodePane>
       <br />
       <CodePane
@@ -408,11 +443,18 @@ expect(result.current).toEqual({
     <Slide>
       <Heading fontSize="50px">Practical examples</Heading>
       <CodePane
+          autoFillHeight
+          style={{ overflow: 'hidden' }}
           fontSize={18}
           language="javascript"
           autoFillHeight
       >
-        {`https://www.polvara.me/posts/how-to-test-asynchronous-methods/`}
+        {`import React from 'react'
+
+const Hello = () => {
+const name = await NameService.getName();
+
+return name ? <div>{name}</div> : null;`}
       </CodePane>
       <br />
       <CodePane
@@ -420,36 +462,30 @@ expect(result.current).toEqual({
           language="javascript"
           autoFillHeight
       >
-        {``}
+        {`import { render } from 'react-testing-library'
+import Hello from './Hello'
+
+// spy
+const promise = Promise.resolve({ name: 'Pep' });
+
+describe('Hello', () => {
+  it('should contains name', async () => {
+    const { getByText } = render(<Hello />);
+    
+    await act(() => {
+      return promise;
+    });
+    
+    const value = getByText('Pep');
+    expect(value.innerHTML).toBe('Pep');
+  });
+})`}
       </CodePane>
       <Notes>
-        Testing a aysnc method
+        Testing async method amb el mètode act
 
-        - renderHook: Render hook and check what is the result
-      </Notes>
-    </Slide>
-    <Slide>
-      <Heading fontSize="50px">Practical examples</Heading>
-      <CodePane
-          fontSize={18}
-          language="javascript"
-          autoFillHeight
-      >
-        {`https://es.reactjs.org/docs/testing-recipes.html#act`}
-      </CodePane>
-      <br />
-      <CodePane
-          fontSize={18}
-          language="javascript"
-          autoFillHeight
-      >
-        {``}
-      </CodePane>
-      <Notes>
-        Testing amb el metodo act
-
-        Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse “unidades” de interacción con la interfaz de usuario.
-        Para preparar la asertividad en un componente, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a act(). Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
+        <p>Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse “unidades” de interacción con la interfaz de usuario.</p>
+        <p>Para preparar la asertividad en un componente, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a act(). Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.</p>
       </Notes>
     </Slide>
     {/* Tips */}
@@ -582,6 +618,7 @@ expect(result.current).toEqual({
       >
         {steps.step8}
       </CodePane>
+      <Text>REVISAR MOCK!</Text>
       <Notes>
         <p><b>Antes de la siguiente slide:</b> Ahora ya solo nos queda hacer la petición y hacer que el test esté en verde</p>
       </Notes>
