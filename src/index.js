@@ -17,7 +17,6 @@ import {
   OrderedList,
   Progress,
   Slide,
-  SpectacleLogo,
   Stepper,
   Text,
   UnorderedList,
@@ -53,6 +52,9 @@ const Presentation = () => (
           <CodeSpan>Practical examples</CodeSpan>
         </ListItem>
         <ListItem>
+          <CodeSpan>Tips</CodeSpan>
+        </ListItem>
+        <ListItem>
           <CodeSpan>Time to play</CodeSpan>
         </ListItem>
       </UnorderedList>
@@ -68,7 +70,10 @@ const Presentation = () => (
           <CodeSpan>Types of testing</CodeSpan>
         </ListItem>
         <ListItem>
-          <CodeSpan>BDD, TDD, unit?</CodeSpan>
+          <CodeSpan>Test anatomy</CodeSpan>
+        </ListItem>
+        <ListItem>
+          <CodeSpan>BDD vs TDD</CodeSpan>
         </ListItem>
         <ListItem>
           <CodeSpan>Coverage</CodeSpan>
@@ -95,11 +100,24 @@ const Presentation = () => (
         <Image src="https://media.giphy.com/media/MgBJ3UifivIY/giphy.gif" />
       </Text>
       <Notes>
+        <p>
         evaluate the functionality
+        </p>
+      <p>
         met the specified requirements
+        </p>
+      <p>
         identify the defects
+        </p>
+      <p>
         the product is defect-free
+        </p>
       </Notes>
+    </Slide>
+    <Slide>
+      <FlexBox height={'100%'}>
+        <Image src={'/src/img/chart.jpg'} />
+      </FlexBox>
     </Slide>
     {/* Types of testing */}
     <Slide>
@@ -112,6 +130,20 @@ const Presentation = () => (
           <CodeSpan>Functional vs Non-functional</CodeSpan>
         </ListItem>
       </UnorderedList>
+      <Notes>
+        <p>El testing manual
+consiste en preparar una serie de casos y ejecutar a mano los elementos necesarios,
+<b> son lentos, difíciles de replicar, caros</b></p>
+        <p>Aunque debemos ser conscientes de que no todo es automatizable</p>
+        <p>Los test funcionales hacen referencia a las pruebas que verifican el correcto comportamiento
+del sistema, subsistema o componente</p>
+<p>El objetivo de los test no funcionales es la verificación de un requisito que especifica
+criterios que pueden usarse para juzgar la operación de un sistema, como por
+ejemplo la disponibilidad, accesibilidad, usabilidad, mantenibilidad, seguridad y/o
+rendimiento</p>
+<p><b>centran en comprobar cómo
+responde el sistema, no en qué hace o debería hacer</b></p>
+      </Notes>
     </Slide>
     <Slide>
       <Heading fontSize="50px">Functional testing</Heading>
@@ -123,26 +155,34 @@ const Presentation = () => (
           <CodeSpan>Integration</CodeSpan>
         </ListItem>
         <ListItem>
-          <CodeSpan>System</CodeSpan>
+          <CodeSpan>System / E2E</CodeSpan>
         </ListItem>
         <ListItem>
           <CodeSpan>Regression</CodeSpan>
         </ListItem>
       </UnorderedList>
       <Notes>
-      • Tests Unitarios: Este tipo de pruebas comprueban elementos básicos de nuestro
+      <p>
+        • Tests Unitarios: Este tipo de pruebas comprueban elementos básicos de nuestro
       software de forma aislada. Son los test más importantes a la hora de validar
       las reglas de negocio que hemos desarrollado. Nos centraremos en este tipo de
       pruebas a lo largo de la sección de testing.
+      </p>
+      <p>
       • Tests de integración: Los test de integración son aquellos que prueban conjuntos de elementos básicos, normalmente suelen incluirse en este tipo de pruebas
       algunos elementos de infraestructura, como base de datos o llamadas a APIs.
+      </p>
+      <p>
       • Tests de sistema: Este tipo de test, también denominados end-to-end o de extremo a extremo, prueban múltiples elementos de nuestra arquitectura simulando
       el comportamiento de un actor con nuestro software.
-      • Tests de regresión: Este tipo de pruebas se encargan de verificar la funcionalidad ya entregada, es decir, son pruebas que se usan para detectar que
+      </p>
+      <p>
+        • Tests de regresión: Este tipo de pruebas se encargan de verificar la funcionalidad ya entregada, es decir, son pruebas que se usan para detectar que
       en los cambios introducidos en el sistema no se genera un comportamiento
       inesperado. En definitiva, cualquier tipo de test funcional de los que hemos visto
       podría ser un test de regresión, siempre y cuando hayan pasado correctamente
       en algún momento y, tras realizar algún cambio en el sistema, empiecen a fallar
+      </p>
       </Notes>
     </Slide>
     <Slide>
@@ -152,7 +192,7 @@ const Presentation = () => (
           <CodeSpan>Load</CodeSpan>
         </ListItem>
         <ListItem>
-          <CodeSpan>Velocity</CodeSpan>
+          <CodeSpan>Velocity / Performance</CodeSpan>
         </ListItem>
         <ListItem>
           <CodeSpan>Usability</CodeSpan>
@@ -161,15 +201,15 @@ const Presentation = () => (
           <CodeSpan>Security</CodeSpan>
         </ListItem>
         <Notes>
-          Tests de carga: Son test mediante los que se observa el comportamiento de
+          <p>• Tests de carga: Son test mediante los que se observa el comportamiento de
           una sistema software bajo diferentes números de peticiones durante un tiempo
-          determinado.
-          • Tests de velocidad: Comprueban si el sistema genera los resultados en un
-          tiempo aceptable.
-          • Tests de usabilidad: Son pruebas en las que se trata de evaluar la UX del
-          sistema.
-          • Tests de seguridad: Se trata de un conjunto de pruebas en las que se trata de
-          evaluar si el sistema desarrollado está expuesto a vulnerabilidades conocidas.
+          determinado.</p>
+          <p>• Tests de velocidad: Comprueban si el sistema genera los resultados en un
+          tiempo aceptable.</p>
+          <p>• Tests de usabilidad: Son pruebas en las que se trata de evaluar la UX del
+          sistema</p>
+          <p>• Tests de seguridad: Se trata de un conjunto de pruebas en las que se trata de
+          evaluar si el sistema desarrollado está expuesto a vulnerabilidades conocidas.</p>
         </Notes>
       </UnorderedList>
     </Slide>
@@ -222,9 +262,11 @@ const Presentation = () => (
     <Slide>
       <Heading fontSize="50px">Practical examples</Heading>
       <CodePane
-          fontSize={18}
-          language="cpp"
-          autoFillHeight
+        autoFillHeight
+        style={{ overflow: 'hidden' }}
+        fontSize={18}
+        language="javascript"
+        autoFillHeight
       >
 {`import React from 'react'
 
@@ -235,7 +277,7 @@ export default Hello;`}
       <br />
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
 {`import { render } from 'react-testing-library'
@@ -245,6 +287,8 @@ describe('Hello', () => {
   it('should contains name', () => {
     const { getByText } = render(<Hello name="Pep" />);
     getByText('Pep');
+
+    expect()
   })
 })`}
       </CodePane>
@@ -259,7 +303,7 @@ describe('Hello', () => {
       <Heading fontSize="50px">Practical examples</Heading>
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
 {`const useHello = ({ name }) => {name};
@@ -269,7 +313,7 @@ export default useHello;`}
       <br />
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
 {`import { renderHook } from '@testing-library/react-hooks';
@@ -290,7 +334,7 @@ expect(result.current).toEqual({
       <Heading fontSize="50px">Practical examples</Heading>
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
         {`https://www.polvara.me/posts/how-to-test-asynchronous-methods/`}
@@ -298,7 +342,7 @@ expect(result.current).toEqual({
       <br />
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
         {``}
@@ -313,7 +357,7 @@ expect(result.current).toEqual({
       <Heading fontSize="50px">Practical examples</Heading>
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
         {`https://es.reactjs.org/docs/testing-recipes.html#act`}
@@ -321,7 +365,7 @@ expect(result.current).toEqual({
       <br />
       <CodePane
           fontSize={18}
-          language="cpp"
+          language="javascript"
           autoFillHeight
       >
         {``}
@@ -332,6 +376,10 @@ expect(result.current).toEqual({
         Cuando se escriben pruebas de interfaz de usuario, tareas como el renderizado, los eventos de usuario, o la obtención de datos pueden considerarse “unidades” de interacción con la interfaz de usuario.
         Para preparar la asertividad en un componente, debes envolver el código que lo renderiza y que realiza actualizaciones sobre este en un llamado a act(). Esto hace que tus pruebas corran de una forma más parecida a como lo hace React en el navegador.
       </Notes>
+    </Slide>
+    {/* Tips */}
+    <Slide>
+      <Heading fontSize="50px">Tips</Heading>
     </Slide>
     {/* Time to play */}
     <Slide>
@@ -350,181 +398,6 @@ expect(result.current).toEqual({
         <Text>Edsger W. Dijkstra</Text>
       </FlexBox>
     </Slide>
-
-
-
-{/* ----------------- INSPIRATION -------------------- */}
-    <Slide
-      backgroundColor="tertiary"
-      backgroundImage="url(https://github.com/FormidableLabs/dogs/blob/main/beau.jpg?raw=true)"
-      backgroundOpacity={0.5}
-    >
-      <Heading fontSize="50px">Custom Backgrounds</Heading>
-      <UnorderedList>
-        <ListItem>
-          <CodeSpan>backgroundColor</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundImage</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundOpacity</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundSize</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundPosition</CodeSpan>
-        </ListItem>
-        <ListItem>
-          <CodeSpan>backgroundRepeat</CodeSpan>
-        </ListItem>
-      </UnorderedList>
-    </Slide>
-    <Slide transitionEffect="slide">
-      <Heading fontSize="50px">Code Blocks</Heading>
-      <Stepper
-        defaultValue={[]}
-        values={[
-          [1, 1],
-          [23, 25],
-          [40, 42]
-        ]}
-      >
-        {(value, step) => (
-          <Box position="relative">
-            <CodePane
-              highlightStart={value[0]}
-              highlightEnd={value[1]}
-              fontSize={18}
-              language="cpp"
-              autoFillHeight
-            >
-              {cppCodeBlock}
-            </CodePane>
-
-            <Box
-              position="absolute"
-              bottom="0rem"
-              left="0rem"
-              right="0rem"
-              bg="black"
-            >
-              {/* This notes container won't appear for step 0 */}
-
-              {step === 1 && (
-                <Text fontSize="1.5rem" margin="0rem">
-                  This is a note!
-                </Text>
-              )}
-
-              {step === 2 && (
-                <Text fontSize="1.5rem" margin="0rem">
-                  You can use the stepper state to render whatever you like as
-                  you step through the code.
-                </Text>
-              )}
-            </Box>
-          </Box>
-        )}
-      </Stepper>
-      <Text>
-        Code Blocks now auto size and scroll when there is an overflow of
-        content! They also auto-wrap longer lines.
-      </Text>
-    </Slide>
-    <Slide>
-      <Heading fontSize="50px">Animated Elements</Heading>
-      <OrderedList>
-        <Appear elementNum={0}>
-          <ListItem>Elements can animate in!</ListItem>
-        </Appear>
-        <Appear elementNum={2}>
-          <ListItem>
-            Just identify the order with the prop{' '}
-            <CodeSpan>elementNum</CodeSpan>!
-          </ListItem>
-        </Appear>
-        <Appear elementNum={1}>
-          <ListItem>Out of order</ListItem>
-        </Appear>
-      </OrderedList>
-    </Slide>
-    <Slide>
-      <FlexBox>
-        <Text>These</Text>
-        <Text>Text</Text>
-        <Text color="secondary">Items</Text>
-        <Text fontWeight="bold">Flex</Text>
-      </FlexBox>
-      <Grid gridTemplateColumns="1fr 2fr" gridColumnGap={15}>
-        <Box backgroundColor="primary">
-          <Text color="secondary">Single-size Grid Item</Text>
-        </Box>
-        <Box backgroundColor="secondary">
-          <Text>Double-size Grid Item</Text>
-        </Box>
-      </Grid>
-      <Grid
-        gridTemplateColumns="1fr 1fr 1fr"
-        gridTemplateRows="1fr 1fr 1fr"
-        alignItems="center"
-        justifyContent="center"
-        gridRowGap={1}
-      >
-        {Array(9)
-          .fill('')
-          .map((_, index) => (
-            <FlexBox paddingTop={0} key={`formidable-logo-${index}`} flex={1}>
-              Logo
-            </FlexBox>
-          ))}
-      </Grid>
-    </Slide>
-    <Slide>
-      <Markdown>
-        {`
-          # Layout Tables in Markdown
-
-          | Browser         | Supported | Versions |
-          |-----------------|-----------|----------|
-          | Chrome          | Yes       | Last 2   |
-          | Firefox         | Yes       | Last 2   |
-          | Opera           | Yes       | Last 2   |
-          | Edge (EdgeHTML) | No        |          |
-          | IE 11           | No        |          |
-        `}
-      </Markdown>
-    </Slide>
-    <Markdown containsSlides>
-      {`
-        ### Even write multiple slides in Markdown
-        > Wonderfully formatted quotes
-
-        1. Even create
-        2. Lists in Markdown
-
-
-        - Or Unordered Lists
-        - Too!!
-        Notes: These are notes
-        ---
-        ### This slide was also generated in Markdown!
-
-        \`\`\`jsx
-        const evenCooler = "is that you can do code in Markdown";
-        // You can even specify the syntax type!
-        \`\`\`
-
-        ### A slide can have multiple code blocks too.
-
-        \`\`\`c
-        char[] someString = "Popular languages like C too!";
-        \`\`\`
-
-        Notes: These are more notes
-      `}
-    </Markdown>
   </Deck>
 );
 

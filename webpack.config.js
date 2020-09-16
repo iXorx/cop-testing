@@ -54,7 +54,7 @@ module.exports = {
   // Default for boilerplate generation.
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'It should be about testing',
+      title: 'it(should be about testing, ...)',
       template: './src/index.html'
     })
   ]
