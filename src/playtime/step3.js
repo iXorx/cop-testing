@@ -3,5 +3,5 @@ import {
 } from 'spectacle';
 
 export const step3 = indentNormalizer(`
-const CivilazationListItem = ({ name }) => <article className="list-item">{name}</article>;
+const CivilizationListItem = ({ name }) => <article className="list-item">{name}</article>;
 `);

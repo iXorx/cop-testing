@@ -18,8 +18,8 @@ it("shows a list of Pokémons retrieved from an API", async () => {
   });
 
   // Comprobamos que la aplicación renderiza la colección de resultados proporcionada por el mock
-  for (let civilazation of data.civilizations) {
-    expect(getByText(civilazation.name)).toBeInTheDocument();
+  for (let civilization of data.civilizations) {
+    expect(getByText(civilization.name)).toBeInTheDocument();
   }
 });
 `);
